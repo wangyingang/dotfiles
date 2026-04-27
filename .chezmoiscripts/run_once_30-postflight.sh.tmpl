@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cat <<'EOF'
+
+Postflight checklist:
+
+1. Sign in to iCloud and confirm iCloud Drive sync.
+2. Sign in to App Store China and US accounts as needed.
+3. Restore App Store apps with Brewfile.mas after the right account is active.
+4. Restore secrets manually: ~/.ssh, API keys, app license keys, and CLI login state.
+5. Install manual apps listed in MIGRATION.md.
+6. Open System Settings and compare Trackpad, keyboard shortcuts, Date & Time, and Language & Region.
+
+EOF
+

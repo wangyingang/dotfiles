@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Conservative macOS defaults from the pre-reinstall snapshot.
+# Some changes require logout/restart.
+
+defaults write NSGlobalDomain AppleLanguages -array "en-CN" "zh-Hans-CN"
+defaults write NSGlobalDomain AppleLocale -string "en_CN"
+defaults write NSGlobalDomain AppleFirstWeekday -dict gregorian -int 2
+
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+defaults write NSGlobalDomain InitialKeyRepeat -int 25
+defaults write NSGlobalDomain KeyRepeat -int 2
+
+defaults write com.apple.dock tilesize -int 64
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock orientation -string "bottom"
+defaults write com.apple.dock magnification -bool true
+
+killall Dock >/dev/null 2>&1 || true
+killall Finder >/dev/null 2>&1 || true
+killall SystemUIServer >/dev/null 2>&1 || true
+

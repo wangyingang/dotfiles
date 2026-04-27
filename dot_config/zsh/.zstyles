@@ -1,0 +1,103 @@
+#!/bin/zsh
+#
+# .zstyles - zstyle settings for features/plugins that need them.
+#
+
+#
+# Zephyr features
+#
+
+# Use XDG Base Directories
+zstyle ':zephyr:plugin:*' use-xdg-basedirs yes
+
+# Use caching
+zstyle ':zephyr:plugin:*' 'use-cache' yes
+
+#
+# Completions
+#
+
+# Set the entries to ignore in static '/etc/hosts' for host completion.
+# zstyle ':zephyr:plugin:completion:*:hosts' etc-host-ignores \
+#   '0.0.0.0' '127.0.0.1'
+
+# Set the preferred completion style.
+# 总共有四种 style: zephyr, prez, ohmy, zshzoo
+zstyle ':zephyr:plugin:completion' compstyle 'zephyr'
+# zstyle ':zephyr:plugin:completion' compstyle 'prez'
+
+# zstyle ':zephyr:plugin:completion' compstyle 'ohmy'
+# zstyle ':zephyr:plugin:completion' compstyle 'zshzoo'
+
+# 'zephyr' 和 'prez' 默认都开启了 completion cache，无须设置以下 zstyles
+# 'ohmy' 和 'zshzoo' 默认没有开启 completion cache，需要额外开启。
+# zstyle ':completion::complete:*' use-cache on
+# zstyle ':completion::complete:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
+
+#
+# confd
+#
+
+# To source the conf.d directory immediately instead of deferring until after .zshrc
+# zstyle ':zephyr:plugin:confd' 'immediate' 'yes'
+
+
+#
+# Editor
+#
+
+# Set the key mapping style to 'emacs' or 'vi'.
+zstyle ':zephyr:plugin:editor' key-bindings 'emacs'
+
+# Enabled by default
+# Ctrl-Z - Push current command to background, or bring back with Ctrl-Z on empty line (enabled by default)
+# zstyle ':zephyr:plugin:editor' symmetric-ctrl-z no
+
+# Ctrl-X Ctrl-S - Add sudo to the beginning of the line (enabled by default)
+# zstyle ':zephyr:plugin:editor' prepend-sudo no
+
+# Ctrl-Space - Expand aliases (enabled by default)
+# zstyle ':zephyr:plugin:editor' glob-alias no
+
+
+# Disabled by default
+# Dot expansion - Type ... to expand to ../.., .... to ../../.., etc (disabled by default)
+# zstyle ':zephyr:plugin:editor' dot-expansion yes
+
+# Space - Expand aliases automatically as you type (disabled by default)
+# zstyle ':zephyr:plugin:editor' automatic-glob-alias yes
+
+# Magic enter - Press enter on empty line to run ls or git status if in a git repo (disabled by default)
+# zstyle ':zephyr:plugin:editor' magic-enter yes
+
+# Set custom magic-enter commands:
+# zstyle ':zephyr:plugin:editor:magic-enter' command 'ls -la'
+# zstyle ':zephyr:plugin:editor:magic-enter' git-command 'git status'
+
+
+#
+# History
+#
+
+# Set the file to save the history in when an interactive shell exits.
+zstyle ':zephyr:plugin:history' histfile "${ZSH_STATE_DIR:-$HOME/.local/state/zsh}/history"
+
+# Set the maximum number of events stored in the internal history list.
+# zstyle ':zephyr:plugin:history' histsize 10000
+
+# Set the maximum number of history events to save in the history file.
+# zstyle ':zephyr:plugin:history' savehist 10000
+
+
+#
+# Prompt
+#
+
+# Set the prompt theme to load.
+
+# p10k themes: lean, rainbow, pure
+zstyle ':zephyr:plugin:prompt' theme p10k lean
+
+# starship themes: zephyr, hydro, prezto
+# zstyle ':zephyr:plugin:prompt' theme starship starship
+

@@ -1,0 +1,69 @@
+# 外观样式
+#theme = dark:Catppuccin Frappe,light:Catppuccin Latte
+#theme = Catppuccin Frappe
+#theme = Catppuccin Mocha
+theme = Dracula
+#theme = Monokai Pro
+#theme = Monokai Classic
+
+custom-shader = shaders/cursor_blaze.glsl
+
+# 字体设置
+# font-family = "JetBrains Mono", "MesloLGS Nerd Font Mono", "FiraCode Nerd Font Mono", "IBM Plex Mono"
+font-family = "MesloLGS Nerd Font Mono", "FiraCode Nerd Font Mono", "IBM Plex Mono", "JetBrains Mono"
+font-size = 18
+
+# 窗口设置
+window-padding-x = 8
+window-padding-y = 8
+window-width = 120
+window-height = 36
+# window-step-resize = true
+window-save-state = always
+
+background-opacity = 0.85
+background-blur-radius = 20
+
+# The style of the macOS titlebar. Available values are: "native", "transparent", "tabs", and "hidden".
+# macos-titlebar-style = hidden
+
+# quick terminal
+quick-terminal-position = top
+
+# 光标设置
+# 以下这些兼容性已经 deprecated 了，具体可以看官方文档 shell-integration-features 中的 cursor
+# block | bar | underline | block_hollow
+# cursor-style = block
+# shell-integration-features = no-cursor
+
+# 鼠标设置
+mouse-hide-while-typing = true
+
+# 快捷键绑定
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
+# 将左 Option 键设为 meta key (用于 termianl 环境)
+macos-option-as-alt = "left"
+
+# 粘贴板
+copy-on-select = clipboard
+
+# 系统通知
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = bell,notify
+notify-on-command-finish-after = 30s
+
+# 其他
+
+# 以下这些兼容性已经 deprecated 了，具体可以看官方文档 shell-integration 部分
+# When running the top command in a remote Linux environment,
+# errors such as `'xterm-ghostty/xterm-iterm': unknown terminal type.` may occur.
+# Add the following line to fix it:
+# term = xterm-256color
+
+shell-integration-features = cursor, ssh-env, ssh-terminfo, path
+
+
+# 关闭时是否确认
+confirm-close-surface = false
+

@@ -1,0 +1,18 @@
+# Optional App Store restore.
+# Run manually after signing in to the correct Apple ID:
+#   brew bundle --file Brewfile.mas --no-upgrade
+
+brew "mas"
+
+mas "HP Smart", id: 1474276998
+mas "PDFgear", id: 6469021132
+mas "Bob", id: 1630034110
+mas "Bitwarden", id: 1352778147
+mas "TestFlight", id: 899247664
+mas "Pages", id: 409201541
+mas "Numbers", id: 409203825
+mas "Keynote", id: 409183694
+mas "Xcode", id: 497799835
+mas "Actions", id: 1586435171
+mas "Quantumult X", id: 1443988620
+

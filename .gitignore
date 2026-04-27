@@ -1,0 +1,16 @@
+.DS_Store
+*.log
+*.tmp
+*.bak
+*.backup
+
+# Do not commit local secrets, caches, histories, or generated chezmoi state.
+.chezmoi.toml
+.chezmoi.yaml
+.chezmoi.json
+.chezmoi.local.*
+id_*
+*.pem
+*.key
+*.p12
+*.mobileprovision

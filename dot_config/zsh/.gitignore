@@ -1,0 +1,29 @@
+# ---- runtime cache ----
+*.zwc
+
+# ---- local/private overrides ----
+.local.zsh
+.zshrc.local
+
+# ---- macOS ----
+.DS_Store
+
+# 忽略所有前缀为`.` 的目录，例如 `.zkbd`
+# 当人为设定 `$ZDOTDIR` 目录后，
+# 会有很多程序使用这里存放数据或配置信息
+# 一般会以前缀为`.`的目录开始
+.*/
+
+
+
+# ---- editor / IDE ----
+.vscode/
+.idea/
+
+# ---- logs / temp ----
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*~

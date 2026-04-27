@@ -1,0 +1,46 @@
+[user]
+	name = wangyingang
+	email = wangyg.personal@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	autocrlf = input
+	safecrlf = true
+	; 在Git命令环境中正确显示中文
+	quotepath = off
+[log]
+	date = iso
+[credential]
+	helper = 
+	helper = /usr/local/bin/git-credential-manager
+[fetch]
+	prune = true
+[push]
+	autoSetupRemote = true
+[pull]
+	ff = only
+[merge]
+	conflictstyle = zdiff3
+[rerere]
+	enabled = true
+[diff]
+	colorMoved = zebra
+[alias]
+	st = status --short --branch
+	sw = switch
+	swc = switch -c
+	br = branch
+	df = diff
+	dc = diff --cached
+	ap = add -p
+	cm = commit -m
+	lg = log --graph --decorate --oneline
+	lga = log --graph --decorate --oneline --all
+	last = log -1 --stat
+	pl = pull --ff-only
+	pf = push --force-with-lease
+	unstage = restore --staged --
+	discard = restore --
+	uncommit = reset --soft HEAD~1
+	amend = commit --amend
+	amend-noedit = commit --amend --no-edit

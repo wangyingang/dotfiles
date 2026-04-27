@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Brewfile hash: {{ include "Brewfile" | sha256sum }}
+
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Homebrew is not installed. Run bootstrap.sh first." >&2
+  exit 1
+fi
+
+brew bundle --file "{{ .chezmoi.sourceDir }}/Brewfile" --no-upgrade
+
+if command -v mas >/dev/null 2>&1 && mas account >/dev/null 2>&1; then
+  echo "MAS is signed in. To restore App Store apps, run:"
+  echo "  brew bundle --file \"{{ .chezmoi.sourceDir }}/Brewfile.mas\" --no-upgrade"
+else
+  echo "MAS is not signed in. App Store apps are listed in Brewfile.mas for manual restore."
+fi

@@ -1,0 +1,9 @@
+# Repo support files. Keep them available in the source checkout, but do not
+# materialize them into $HOME during `chezmoi apply`.
+.gitignore
+README.md
+MIGRATION.md
+Brewfile
+Brewfile.mas
+bootstrap.sh
+

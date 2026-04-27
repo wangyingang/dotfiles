@@ -1,0 +1,6 @@
+[tools]
+node = "lts"
+
+[settings]
+node.corepack = true
+python.uv_venv_auto = "source"
