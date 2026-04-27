@@ -24,6 +24,7 @@ chezmoi apply --source ~/Development/Working/dotfiles
 ## What this repo restores
 
 - Core dotfiles: zsh, Git, Starship, Mise, Ghostty, Karabiner, btop, uv.
+- Agent instructions: `~/.agents/AGENTS.md`, `~/.claude/CLAUDE.md`.
 - Core Homebrew formulae/casks via `Brewfile`.
 - Conservative macOS defaults via chezmoi run scripts.
 - Optional App Store app list in `Brewfile.mas`.
@@ -36,4 +37,3 @@ chezmoi apply --source ~/Development/Working/dotfiles
 - Runtime caches, shell history, logs, old backups.
 
 See `MIGRATION.md` for the full reinstall checklist.
-
