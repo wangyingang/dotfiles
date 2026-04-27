@@ -25,6 +25,8 @@ Goal: erase local disk, reinstall macOS, and restore only intentional tools and 
   - Screen Studio and Downie: record license and download account.
   - WeChat: back up chat history manually if needed.
   - Chrome/Bitwarden/Obsidian: confirm sync or vault backup.
+  - Codex App: see the external-disk restore note at `/Volumes/Movies-1T/mac-migration/codex/RESTORE-CODEX.md`.
+  - SSH keys: see the external-disk restore note at `/Volumes/Movies-1T/mac-migration/ssh-backup/SSH-BACKUP-RESTORE.md`.
 
 ## 2. First Boot After Reinstall
 
@@ -46,11 +48,13 @@ xcode-select --install
 The bootstrap flow restores:
 
 - Homebrew and chezmoi.
-- Core CLI tools: git, gh, mise, uv, fzf, zoxide, ripgrep, fd, bat, jq, starship, shellcheck, neovim, go, bun.
-- Core GUI tools: Ghostty, Chrome, VS Code, Karabiner-Elements, Raycast, Rectangle, OrbStack, Obsidian, fonts.
+- Core CLI tools: git, gh, mas, antidote, bat, fd, fzf, jq, mise, ripgrep, starship, tree, uv, curl, wget, zoxide, unar, go, bun, ffmpeg, yt-dlp.
+- Core GUI tools: Ghostty, Git Credential Manager, Chrome, VS Code, Karabiner-Elements, Raycast, Rectangle, OrbStack, Obsidian, IINA, LocalSend, Stats, WeChat, QLMarkdown, Telegram, Keka, fonts.
 - Core configs:
   - `~/.zshenv`
   - `~/.gitconfig`
+  - `~/.agents/AGENTS.md`
+  - `~/.claude/CLAUDE.md`
   - `~/.config/zsh`
   - `~/.config/starship`
   - `~/.config/mise`
@@ -77,13 +81,16 @@ Sign in to the right Apple ID first, then optionally run:
 brew bundle --file ~/Development/Working/dotfiles/Brewfile.mas --no-upgrade
 ```
 
-Apps listed there:
+Currently enabled App Store entries:
 
 - HP Smart
 - PDFgear
 - Bob
 - Bitwarden
 - TestFlight
+
+Entries kept as commented reminders in `Brewfile.mas`:
+
 - Pages
 - Numbers
 - Keynote
@@ -105,7 +112,6 @@ Install manually and restore licenses/settings as needed:
 - Microsoft Office
 - Quark
 - VMware Fusion
-- WeChat
 - Z-Library
 - PopClip
 - Screen Studio
@@ -119,8 +125,9 @@ Install manually and restore licenses/settings as needed:
 
 ```bash
 chmod 700 ~/.ssh
-chmod 600 ~/.ssh/*
-chmod 644 ~/.ssh/*.pub 2>/dev/null || true
+find ~/.ssh -type d -exec chmod 700 {} \;
+find ~/.ssh -type f -name '*.pub' -exec chmod 644 {} \;
+find ~/.ssh -type f ! -name '*.pub' -exec chmod 600 {} \;
 ```
 
 - Re-login:
@@ -152,7 +159,7 @@ Run:
 chezmoi doctor
 brew bundle check --file ~/Development/Working/dotfiles/Brewfile --no-upgrade
 git config --global --list --show-origin
-zsh -lic 'echo $ZDOTDIR; command -v git gh mise uv starship fzf zoxide'
+zsh -lic 'echo $ZDOTDIR; command -v git gh mise uv starship fzf zoxide curl unar'
 ```
 
 Then open these apps once and confirm permissions:
@@ -164,4 +171,3 @@ Then open these apps once and confirm permissions:
 - VS Code
 - Obsidian
 - OrbStack
-

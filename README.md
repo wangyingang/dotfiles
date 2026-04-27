@@ -25,9 +25,9 @@ chezmoi apply --source ~/Development/Working/dotfiles
 
 - Core dotfiles: zsh, Git, Starship, Mise, Ghostty, Karabiner, btop, uv.
 - Agent instructions: `~/.agents/AGENTS.md`, `~/.claude/CLAUDE.md`.
-- Core Homebrew formulae/casks via `Brewfile`.
+- Core Homebrew formulae/casks via `Brewfile`, including CLI basics, fonts, Ghostty, Git Credential Manager, Chrome, VS Code, Karabiner-Elements, Raycast, Rectangle, OrbStack, Obsidian, and selected favorite casks.
 - Conservative macOS defaults via chezmoi run scripts.
-- Optional App Store app list in `Brewfile.mas`.
+- Optional App Store app list in `Brewfile.mas`; run it manually after signing in to the correct Apple ID.
 
 ## What this repo intentionally does not store
 
