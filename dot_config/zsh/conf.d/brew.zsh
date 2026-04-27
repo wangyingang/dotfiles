@@ -14,6 +14,11 @@
 
 eval "$(brew shellenv)"
 
+# Prefer Homebrew curl over macOS system curl.
+if [[ -x /opt/homebrew/opt/curl/bin/curl ]]; then
+  path=(/opt/homebrew/opt/curl/bin $path)
+fi
+
 # Prefer user-level tools, including uv-managed python/python3 and cargo managed rust cli.
 path=(
   $HOME/.local/{,s}bin(/N)
