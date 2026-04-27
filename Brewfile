@@ -27,8 +27,8 @@ brew "unar"        # 解压命令行兜底，专门应对老旧、冷门、编�
 # Developer/runtime tools
 brew "go"
 brew "oven-sh/bun/bun"
-# brew llmfit
-# brew hf
+# brew "llmfit"
+# brew "hf"
 
 # Media/document utilities that are repeatedly useful
 # brew "exiftool"
@@ -60,9 +60,9 @@ cask "localsend"
 cask "stats"
 cask "wechat"
 cask "qlmarkdown"
-# cask squirrel-app
+# cask "squirrel-app"
 cask "telegram"
-# cask tencent-lemon
-# cask tencent-meeting
-# cask netnewswire         # reeder 替代品，现代 RSS reader
+# cask "tencent-lemon"
+# cask "tencent-meeting"
+# cask "netnewswire"      # reeder 替代品，现代 RSS reader
 cask "keka"              # the-unarchiver 替代品，现代解压压缩工具
