@@ -50,7 +50,7 @@ cask "google-chrome"
 cask "karabiner-elements"
 cask "obsidian"
 cask "orbstack"
-cask "raycast"
+# cask "raycast"
 cask "rectangle"
 cask "visual-studio-code"
 
