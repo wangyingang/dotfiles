@@ -1,4 +1,4 @@
-# $ZDOTDIR/conf.d/ai-env.zsh
+# $ZDOTDIR/conf.d/ai-agent-env.zsh
 #
 # AI agent launch helpers.
 #
@@ -10,7 +10,7 @@
 # This file is intended to be sourced from Zephyr confd in an interactive zsh.
 # This file is sourced only after .zshrc has passed interactive / agent / TTY guards.
 
-function ai-env() {
+function ai-agent-env() {
   emulate -L zsh
 
   local user_name log_name lang lc_ctype
@@ -85,7 +85,7 @@ function _ai-launch-macos-app() {
       if [[ "${AI_APP_LOG:-0}" == 1 ]]; then
         local log_dir log_name log_file
 
-        log_dir="${XDG_STATE_HOME:-$HOME/.local/state}/ai-env/logs"
+        log_dir="${XDG_STATE_HOME:-$HOME/.local/state}/ai-agent-env/logs"
         mkdir -p -- "$log_dir" 2>/dev/null
 
         log_name="${label:l}"
@@ -99,9 +99,9 @@ function _ai-launch-macos-app() {
           print -r -- "bin=$bin"
         } >> "$log_file" 2>/dev/null
 
-        ai-env "$bin" </dev/null >> "$log_file" 2>&1 &!
+        ai-agent-env "$bin" </dev/null >> "$log_file" 2>&1 &!
       else
-        ai-env "$bin" </dev/null >/dev/null 2>&1 &!
+        ai-agent-env "$bin" </dev/null >/dev/null 2>&1 &!
       fi
 
       return 0
@@ -124,6 +124,5 @@ function claude-desktop() {
     "/Applications/Claude.app"
 }
 
-alias codex='ai-env codex'
-alias claude='ai-env claude'
-
+alias codex='ai-agent-env codex'
+alias claude='ai-agent-env claude'

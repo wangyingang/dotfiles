@@ -10,5 +10,5 @@ path=(
 # 遗留问题：添加了 fpath, 但是补全并未正常显示
 fpath=(
   $fpath
-  /Applications/OrbStack.app/Contents/Resources/completions/zsh(N)
+  /Applications/OrbStack.app/Contents/MacOS/../Resources/completions/zsh(N)
 )
