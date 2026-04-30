@@ -13,6 +13,8 @@
 [credential]
 	helper = 
 	helper = /usr/local/bin/git-credential-manager
+[credential "https://huggingface.co"]
+	provider = generic
 [fetch]
 	prune = true
 [push]
