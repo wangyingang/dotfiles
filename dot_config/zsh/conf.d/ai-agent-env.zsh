@@ -58,6 +58,42 @@ function ai-agent-env() {
   [[ -n "${XDG_DATA_HOME:-}" ]] && env_args+=(XDG_DATA_HOME="$XDG_DATA_HOME")
   [[ -n "${XDG_STATE_HOME:-}" ]] && env_args+=(XDG_STATE_HOME="$XDG_STATE_HOME")
 
+  # 变量透传白名单
+  local passthrough_var
+  local -a passthrough_vars
+
+  passthrough_vars=(
+    # Anthropic / Claude Code
+    ANTHROPIC_BASE_URL
+    ANTHROPIC_AUTH_TOKEN
+    ANTHROPIC_API_KEY
+    ANTHROPIC_MODEL
+    ANTHROPIC_DEFAULT_OPUS_MODEL
+    ANTHROPIC_DEFAULT_SONNET_MODEL
+    ANTHROPIC_DEFAULT_HAIKU_MODEL
+    API_TIMEOUT_MS
+    CLAUDE_CONFIG_DIR
+    CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC
+    CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS
+    CLAUDE_CODE_ATTRIBUTION_HEADER
+    CLAUDE_CODE_DISABLE_CLAUDE_MDS
+    CLAUDE_CODE_DISABLE_AUTO_MEMORY
+    CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS
+    CLAUDE_CODE_MAX_OUTPUT_TOKENS
+
+    # Codex / OpenAI if later needed
+    OPENAI_API_KEY
+    OPENAI_BASE_URL
+    OPENAI_MODEL
+    CODEX_HOME
+  )
+
+  for passthrough_var in "${passthrough_vars[@]}"; do
+    if (( ${+parameters[$passthrough_var]} )); then
+      env_args+=("$passthrough_var=${(P)passthrough_var}")
+    fi
+  done
+
   env -i "${env_args[@]}" "$@"
 }
 
